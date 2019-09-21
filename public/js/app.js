@@ -2,10 +2,11 @@ const API_CLIENTID = 'd9b5a3b42f84c22557279038f984f3fa5a437179330e7b4901a2c4420b
 const form = document.querySelector('form');
 const input = document.querySelector('input');
 const imageSection = document.querySelector('.images');
-const page = document.getElementById('page');
+const nextPage = document.getElementById('nextPage');
+const previousPage = document.getElementById('previousPage');
+const count = document.getElementById('count');
 
 let currentPage = 1;
-// const API_URL = `https://api.unsplash.com/search/photos?page=${currentPage}&per_page=12&client_id=${API_CLIENTID}`
 
 form.addEventListener('submit', formSubmitted);
 
@@ -18,7 +19,24 @@ function formSubmitted(event) {
     .then(displayImages)
 }
 
+nextPage.onclick = function () {
+  currentPage += 1;
+  let searchTerm = input.value;
+  searchStart();
+  search(searchTerm, currentPage)
+    .then(displayImages)
+};
 
+
+previousPage.onclick = function () {
+  if (currentPage > 1) {
+    currentPage -= 1;
+    let searchTerm = input.value;
+    searchStart();
+    search(searchTerm, currentPage)
+      .then(displayImages)
+  }
+};
 
 function searchStart() {
   imageSection.innerHTML = '';
@@ -33,10 +51,11 @@ function search(searchTerm, currentPage) {
     });
 }
 
+
 function displayImages(result) {
   const images = result.results;
   images.forEach(image => {
-    
+
     let imageContainer = document.createElement('div');
     imageContainer.className = 'ImageResult'
     imageContainer.innerHTML = `<img src="${image.urls.regular}">
@@ -44,9 +63,7 @@ function displayImages(result) {
     imageSection.appendChild(imageContainer);
 
   });
- 
- const totalItems = result.total;
- const totalPages = result.total_pages;
- console.log("totalItem :",totalItems, "total Pages :", totalPages);
- 
+  const totalPages = result.total_pages;
+  count.innerText = `${currentPage}/${totalPages}`;
+
 }
