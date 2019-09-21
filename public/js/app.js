@@ -54,6 +54,9 @@ function search(searchTerm, currentPage) {
 
 function displayImages(result) {
   const images = result.results;
+  if(images.length == 0){
+  imageSection.innerHTML = `<h2>Image not found</h2>`;
+ }
   images.forEach(image => {
 
     let imageContainer = document.createElement('div');
