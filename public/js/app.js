@@ -67,13 +67,7 @@ function selectImage(e){
 
 function displayImages(result) {
   const images = result.results;
-<<<<<<< HEAD
-  if(images.length == 0){
-  imageSection.innerHTML = `<h2>Image not found</h2>`;
- }
-=======
   imageSection.innerHTML = '';
->>>>>>> develop
   images.forEach(image => {
     let imageContainer = document.createElement('div');
     imageContainer.className = 'ImageResult';
