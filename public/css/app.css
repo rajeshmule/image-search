@@ -1,5 +1,8 @@
 /* Base Styles
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
+*{
+  box-sizing: border-box;
+}
 html {
   font-size: 62.5%;
 }
@@ -12,7 +15,7 @@ body {
   color: #111;
   width: 80%;
   max-width: 1600px;
-  margin: 4em auto 0 auto;
+  margin: 0 auto;
 }
 
 /* Typography
@@ -237,9 +240,9 @@ form {
 
 img {
   object-fit: cover;
-  width: 350px;
-  height: 350px;
-  padding: 0 4px;
+  width: 250px;
+  height: 250px;
+  margin: 0 4px;
 }
 
 .createdby {
@@ -250,7 +253,7 @@ img {
 
 .ImageResult {
   float: left;
-  position: relative;
+  margin: 10px;
 }
 
 .ImageResult a {
@@ -272,9 +275,15 @@ img {
 }
 
 .images {
-  padding-bottom: 15px;
+   padding-bottom: 15px;
 }
 
 .pagination {
   padding-bottom: 1em;
+}
+
+.active {
+  border: 5px solid gray;
+  transform: scale(1.1,1.1);
+  /* position: relative; */
 }
