@@ -8,29 +8,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" media="screen" href="css/app.css" />
+    <script src="https://kit.fontawesome.com/9cf40ed92e.js" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <header>
-        <h4>Unsplash Image Search</h4>
-        <form>
-            <label for="searchTerm">Image Search</label>
-            <input class="searchBox" type="text" id="searchTerm" name="searchTerm"> <button
-                type="submit">Search</button>
-        </form>
-    </header>
-    <div class="pagination">
-        <button id="previousPage">Previous Page</button>
-        <span id="count"></span>
-        <button id="nextPage">Next Page</button>
-    </div>
 
+    <header class="header-container">
+        <div class="header">
+            <div class="logo">
+                Unsplash Image
+            </div>
+            <form>
+                <input class="searchBox" type="text" id="searchTerm" name="searchTerm">
+                <button class="button-primary" type="submit"><i class="fas fa-search fa-lg"></i>
+                </button>
+
+            </form>
+            <div class="pagination">
+                <button class="button-primary" id="previousPage"><i class="fas fa-chevron-left fa-lg"></i></button>
+                <span id="count" class="count"></span>
+                <button class="button-primary" id="nextPage"><i class="fas fa-chevron-right fa-lg"></i></button>
+            </div>
+        </div>
+    </header>
     <section class="images">
     </section>
-
-
-
     <script src="js/app.js"></script>
 </body>
 

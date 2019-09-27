@@ -13,8 +13,8 @@ body {
   font-family: "Raleway", "HelveticaNeue", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   color: #111;
-  width: 80%;
-  max-width: 1600px;
+  /* width: 80%; */
+  /* max-width: 900px; */
   margin: 0 auto;
 }
 
@@ -103,7 +103,7 @@ input[type="reset"],
 input[type="button"] {
   display: inline-block;
   height: 38px;
-  padding: 0 30px;
+  padding: 0 10px;
   color: #555;
   text-align: center;
   font-size: 11px;
@@ -229,14 +229,11 @@ label > .label-body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 input#searchTerm.searchBox {
-  width: 600px;
-  max-width: 60%;
+  max-width: 80%;
   box-sizing: border-box;
 }
 
-form {
-  padding-bottom: 1em;
-}
+
 
 img {
   object-fit: cover;
@@ -245,45 +242,60 @@ img {
   margin: 0 4px;
 }
 
-.createdby {
-  position: absolute;
-  top: 1em;
-  right: 1em;
-}
 
 .ImageResult {
-  float: left;
+  
   margin: 10px;
+
 }
 
-.ImageResult a {
-  position: absolute;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  text-shadow: 0px 0px 5px black;
-}
 
-.view_link {
-  right: 1em;
-  top: 0.5em;
-}
-
-.user_link {
-  left: 1em;
-  bottom: 1em;
-}
 
 .images {
-   padding-bottom: 15px;
+   padding: 15px 0;
+   text-align: center;
+   display: flex;
+   flex-wrap: wrap;
+   justify-content: center;
+   max-width: 960px;
+   width: 80%;
+   margin: 0 auto;
 }
 
 .pagination {
-  padding-bottom: 1em;
+  display: flex;
+  align-items: center;
+  align-self: center;
+}
+
+.count{
+  padding: 5px;
 }
 
 .active {
   border: 5px solid gray;
   transform: scale(1.1,1.1);
   /* position: relative; */
+}
+
+/* header */
+
+.header{
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 10px 10px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.header-container{
+  width: 100%;
+
+  background-color: #33c3f0;
+}
+
+.logo{
+  font-size: 2.4rem;
+  flex-grow: 2;
+
 }
