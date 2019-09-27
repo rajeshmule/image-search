@@ -7,6 +7,8 @@ const previousPage = document.getElementById('previousPage');
 const count = document.getElementById('count');
 
 let currentPage = 1;
+let imgUrl;
+
 
 form.addEventListener('submit', formSubmitted);
 
@@ -39,11 +41,12 @@ previousPage.onclick = function () {
 };
 
 function searchStart() {
-  imageSection.innerHTML = '';
+  imageSection.innerHTML = '<h2>Loading...</h2>';
+
 }
 
 function search(searchTerm, currentPage) {
-  let url = `https://api.unsplash.com/search/photos?page=${currentPage}&per_page=30&client_id=${API_CLIENTID}&query=${searchTerm}`;
+  let url = `https://api.unsplash.com/search/photos?page=${currentPage}&per_page=6&client_id=${API_CLIENTID}&query=${searchTerm}`;
   return fetch(url)
     .then(response => response.json())
     .then(result => {
@@ -51,18 +54,31 @@ function search(searchTerm, currentPage) {
     });
 }
 
+function selectImage(e){
+  imgUrl=e.target.src;
+  let img = document.querySelector("#"+`${e.target.id}`);
+  if(document.querySelector(`.active`)){
+  document.querySelector(`.active`).classList.remove('active');
+  }
+  img.classList.add('active');
+  console.log(imgUrl);
+}
+
 
 function displayImages(result) {
   const images = result.results;
+<<<<<<< HEAD
   if(images.length == 0){
   imageSection.innerHTML = `<h2>Image not found</h2>`;
  }
+=======
+  imageSection.innerHTML = '';
+>>>>>>> develop
   images.forEach(image => {
-
     let imageContainer = document.createElement('div');
-    imageContainer.className = 'ImageResult'
-    imageContainer.innerHTML = `<img src="${image.urls.regular}">
-    <a href="${image.links.html}" target="_blank" class="view_link">View on Unsplash</a>`;
+    imageContainer.className = 'ImageResult';
+    imageContainer.onclick = ((e)=>selectImage(e));
+    imageContainer.innerHTML = `<img src="${image.urls.regular}" id='a${image.id}'>`;
     imageSection.appendChild(imageContainer);
 
   });
