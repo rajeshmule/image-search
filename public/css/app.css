@@ -270,6 +270,7 @@ img {
 
 .count{
   padding: 5px;
+  color: #fff;
 }
 
 .active {
@@ -297,5 +298,5 @@ img {
 .logo{
   font-size: 2.4rem;
   flex-grow: 2;
-
+  color: #fff;
 }
